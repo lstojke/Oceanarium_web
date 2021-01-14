@@ -50,6 +50,12 @@ public class AppController {
         return "redirect:/";
     }
 
+    @RequestMapping(value= "/delete/{id_adresu}")
+    public String delete(@PathVariable(name = "id_adresu") int id_adresu) {
+        dao.delete(id_adresu);
+        return "redirect:/";
+    }
+
     public AppController(AdresyDAO dao) {
         this.dao = dao;
     }

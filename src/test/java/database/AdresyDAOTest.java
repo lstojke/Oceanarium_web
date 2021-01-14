@@ -42,6 +42,8 @@ class AdresyDAOTest {
 
     @Test
     void delete() {
+        int id=25;
+        dao.delete(id);
     }
 
     @Test

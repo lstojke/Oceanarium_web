@@ -39,6 +39,8 @@ public class AdresyDAO {
 
     //delete
     public void delete(int id){
+        String sql = "DELETE FROM ADRESY WHERE id_adresu = ?";
+        jdbcTemplate.update(sql, id);
     }
 
     //get
