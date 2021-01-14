@@ -36,8 +36,8 @@ class AdresyDAOTest {
 
     @Test
     void save() {
-        Adres adres = new Adres(0, "Legionowo", "Piaskowa", "11A", "05-119");
-        dao.save(adres);
+        //Adres adres = new Adres(0, "Legionowo", "Piaskowa", "11A", "05-119");
+        //dao.save(adres);
     }
 
     @Test
@@ -46,9 +46,19 @@ class AdresyDAOTest {
 
     @Test
     void get() {
+        int id=4;
+        Adres adres = dao.get(id);
+        assertNotNull(adres);
     }
 
     @Test
     void upadate() {
+        Adres adres = new Adres();
+        adres.setId_adresu(21);
+        adres.setMiasto("Warszawa");
+        adres.setUlica("Zabawna");
+        adres.setNumer("14");
+        adres.setKod_pocztowy("09-412");
+        dao.upadate(adres);
     }
 }

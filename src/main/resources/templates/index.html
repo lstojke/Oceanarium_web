@@ -11,7 +11,8 @@
 
 <div align="center">
     <h1>Oceanarium</h1>
-    <a href = "/new">Dodaj nowe oceanarium</a>
+    <a href="/new">Dodaj nowe oceanarium</a>
+    <br><br/>
 
     <table border="1" cellpadding="10">
         <thead>
@@ -25,12 +26,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "adres : ${adresList}">
-            <td th:text = "${adres.id_adresu}">ID</td>
-            <td th:text = "${adres.miasto}">Miasto</td>
-            <td th:text = "${adres.ulica}">Ulica</td>
-            <td th:text = "${adres.numer}">numer</td>
-            <td th:text = "${adres.kod_pocztowy}">kod_pocztowy</td>
+        <tr th:each="adres : ${adresList}">
+            <td th:text="${adres.id_adresu}">ID</td>
+            <td th:text="${adres.miasto}">Miasto</td>
+            <td th:text="${adres.ulica}">Ulica</td>
+            <td th:text="${adres.numer}">numer</td>
+            <td th:text="${adres.kod_pocztowy}">kod_pocztowy</td>
+            <td>
+                <a th:href="@{'/edit/' + ${adres.id_adresu}}">Edytuj</a>
+            </td>
         </tr>
         </tbody>
     </table>

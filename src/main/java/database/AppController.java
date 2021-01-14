@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -30,6 +32,20 @@ public class AppController {
 
     @RequestMapping(value= "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("adresy") Adres adres) {
+        dao.save(adres);
+        return "redirect:/";
+    }
+
+     @RequestMapping(value= "/edit/{id_adresu}")
+    public ModelAndView showEditForm(@PathVariable(name = "id_adresu") int id_adresu) {
+        ModelAndView mav = new ModelAndView("edit_form");
+        Adres adres = dao.get(id_adresu);
+        mav.addObject("adresy", adres);
+        return mav;
+    }
+
+    @RequestMapping(value= "/update", method = RequestMethod.POST)
+    public String update(@ModelAttribute("adresy") Adres adres) {
         dao.save(adres);
         return "redirect:/";
     }
