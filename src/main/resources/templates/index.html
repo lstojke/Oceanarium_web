@@ -1,10 +1,39 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Strona główna</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
+
+
 <body>
-<p th:text="'Hello, ' + ${adresList.get(1).miasto} + '!'"></p>
+
+<div align="center">
+    <h1>Oceanarium</h1>
+    <a href = "/new">Dodaj nowe oceanarium</a>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Miasto</th>
+            <th>Ulica</th>
+            <th>Numer</th>
+            <th>Kod Pocztowy</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "adres : ${adresList}">
+            <td th:text = "${adres.id_adresu}">ID</td>
+            <td th:text = "${adres.miasto}">Miasto</td>
+            <td th:text = "${adres.ulica}">Ulica</td>
+            <td th:text = "${adres.numer}">numer</td>
+            <td th:text = "${adres.kod_pocztowy}">kod_pocztowy</td>
+        </tr>
+        </tbody>
+    </table>
+    <p th:text="'Hello, ' + ${adresList.get(1).miasto} + '!'"></p>
+</div>
 </body>
 </html>

@@ -25,6 +25,10 @@ class AdresyDAOTest {
     }
 
     @Test
+    void name() {
+    }
+
+    @Test
     void list() {
         List<Adres> adresList = dao.list();
         assertFalse(adresList.isEmpty());
@@ -32,6 +36,8 @@ class AdresyDAOTest {
 
     @Test
     void save() {
+        Adres adres = new Adres(0, "Legionowo", "Piaskowa", "11A", "05-119");
+        dao.save(adres);
     }
 
     @Test

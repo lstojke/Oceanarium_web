@@ -45,7 +45,7 @@
             <artifactId>ojdbc10</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>../../ojdbc10.jar</systemPath>
+            <systemPath>C:/Users/kboro/Desktop/ojdbc10-full/ojdbc10.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
