@@ -46,7 +46,7 @@ public class AppController {
 
     @RequestMapping(value= "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute("adresy") Adres adres) {
-        dao.save(adres);
+        dao.update(adres);
         return "redirect:/";
     }
 

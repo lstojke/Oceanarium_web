@@ -61,6 +61,6 @@ class AdresyDAOTest {
         adres.setUlica("Zabawna");
         adres.setNumer("14");
         adres.setKod_pocztowy("09-412");
-        dao.upadate(adres);
+        dao.update(adres);
     }
 }
