@@ -10,37 +10,46 @@
 <body>
 
 <div align="center">
-    <h1>Oceanarium</h1>
-    <a href="/new">Dodaj nowe oceanarium</a>
+    <h1>Pracownicy</h1>
+    <a href="/new">Dodaj nowego pracownika</a>
     <br><br/>
 
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Miasto</th>
-            <th>Ulica</th>
-            <th>Numer</th>
-            <th>Kod Pocztowy</th>
+            <th>ID pracownika</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Plec</th>
+            <th>Pesel</th>
+            <th>Data zatrudnienia</th>
+            <th>ID oceanarium</th>
+            <th>ID adresu</th>
+            <th>ID stanowiska</th>
             <th>Akcje</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="adres : ${adresList}">
-            <td th:text="${adres.id_adresu}">ID</td>
-            <td th:text="${adres.miasto}">Miasto</td>
-            <td th:text="${adres.ulica}">Ulica</td>
-            <td th:text="${adres.numer}">numer</td>
-            <td th:text="${adres.kod_pocztowy}">kod_pocztowy</td>
+        <tr th:each="pracownik : ${pracownikList}">
+            <td th:text="${pracownik.id_pracownika}">ID</td>
+            <td th:text="${pracownik.imie}">Imie</td>
+            <td th:text="${pracownik.nazwisko}">Nazwisko</td>
+            <td th:text="${pracownik.data_urodzenia}">Data urodzenia</td>
+            <td th:text="${pracownik.plec}">Plec</td>
+            <td th:text="${pracownik.pesel}">Pesel</td>
+            <td th:text="${pracownik.data_zatrudnienia}">Data zatrudnienia</td>
+            <td th:text="${pracownik.id_oceanarium}">ID oceanarium</td>
+            <td th:text="${pracownik.id_adresu}">ID adresu</td>
+            <td th:text="${pracownik.id_stanowiska}">ID stanowiska</td>
             <td>
-                <a th:href="@{'/edit/' + ${adres.id_adresu}}">Edytuj</a>
+                <a th:href="@{'/edit/' + ${pracownik.id_pracownika}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${adres.id_adresu}}">Usuń</a>
+                <a th:href="@{'/delete/' + ${pracownik.id_pracownika}}">Usuń</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <p th:text="'Hello, ' + ${adresList.get(1).miasto} + '!'"></p>
 </div>
 </body>
 </html>
