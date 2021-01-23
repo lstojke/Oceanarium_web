@@ -1,0 +1,32 @@
+body
+{
+  background-color: #004225;
+  color: #ffffff;
+  margin:2px;
+}
+#container{
+    width: 100%;
+    text-align:center;
+    margin: 20px 20%;
+}
+a{
+    text-decoration:none;
+    color: #fff;
+}
+a:hover{
+    color: #ccc;
+}
+div.box{
+    background-color : #006994;
+    width : 450px;
+    height : 300px;
+    margin : auto;
+
+    font-size: 48px;
+    text-align: center;
+    margin : 10px;
+    float: left;
+}
+.linkBox{
+    margin-top : 114px;
+}
