@@ -16,10 +16,14 @@ public class AppController {
     @Autowired
     private PracownicyDAO dao;
 
-    @RequestMapping("/")
+    @RequestMapping("/pracownicy")
     public String viewHomePage(Model model){
         List<Pracownik> pracownikList = dao.list();
         model.addAttribute("pracownikList", pracownikList);
+        return "pracownicy";
+    }
+    @RequestMapping("/")
+    public String temp(){
         return "index";
     }
 
@@ -33,7 +37,7 @@ public class AppController {
     @RequestMapping(value= "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("pracownicy") Pracownik pracownik) {
         dao.save(pracownik);
-        return "redirect:/";
+        return "redirect:/pracownicy";
     }
 
      @RequestMapping(value= "/edit/{id_pracownika}")
@@ -47,13 +51,13 @@ public class AppController {
     @RequestMapping(value= "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute("pracownicy") Pracownik pracownik) {
         dao.update(pracownik);
-        return "redirect:/";
+        return "redirect:/pracownicy";
     }
 
     @RequestMapping(value= "/delete/{id_pracownika}")
     public String delete(@PathVariable(name = "id_pracownika") int id_pracownika) {
         dao.delete(id_pracownika);
-        return "redirect:/";
+        return "redirect:/pracownicy";
     }
 
     public AppController(PracownicyDAO dao) {
