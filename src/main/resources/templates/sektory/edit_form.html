@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Strona główna</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<div>
+    <h1>Edytor sektora</h1>
+    <br/>
+
+    <form action="#" th:action="@{/updateSektor}" th:object="${sektory}" method="post">
+        <table border="1" cellpadding="1">
+            <!-- first row -->
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{id_sektora}" readonly = "readonly"></td>
+            </tr>
+
+            <tr>
+                <td>Nazwa:</td>
+                <td><input type="text" th:field="*{nazwa}"></td>
+
+            </tr>
+
+            <tr>
+                <td>Status:</td>
+                <td><select th:field="*{status}">
+                    <option value="Otwarty">Otwarty</option>
+                    <option value="Czesciowo otwarty">Częściowo otwarty</option>
+                    <option value="W remoncie">W remoncie</option>
+                    <option value="Zamkniety">Zamknięty</option>
+                </select></td>
+
+            </tr>
+
+            <tr>
+                <td>ID_oceanarium:</td>
+                <td><input type="text" th:field="*{id_oceanarium}" readonly = "readonly"></td>
+            </tr>
+
+            <tr>
+                <td>ID_adresu:</td>
+                <td><input type="text" th:field="*{id_adresu}"></td>
+
+            </tr>
+
+            <!--button-->
+            <tr>
+                <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+
+
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

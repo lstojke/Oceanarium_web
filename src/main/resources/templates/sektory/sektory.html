@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista sektorów</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{ tables.css }" rel="stylesheet" type="text/css"/>
+</head>
+
+
+<body>
+<div id="container">
+        <h1>Sektory</h1>
+        <a href="/newSektor">Dodaj nowy sektor</a>
+        <br><br/>
+        <table border="1" cellpadding="10" style="background-color : #006994">
+            <thead>
+            <tr>
+                <th>ID Sektora</th>
+                <th>Nazwa</th>
+                <th>Status</th>
+                <th>ID_Oceanarium</th>
+                <th>ID_Adresu</th>
+                <th>Akcje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sektor : ${sektorList}">
+                <td th:text="${sektor.id_sektora}">ID</td>
+                <td th:text="${sektor.nazwa}">Nazwa</td>
+                <td th:text="${sektor.status}">Status</td>
+                <td th:text="${sektor.id_oceanarium}">ID_oceanarium</td>
+                <td th:text="${sektor.id_adresu}">ID_adresu</td>
+                <td>
+                    <a th:href="@{'/SectorEdit/' + ${sektor.id_sektora}}">Edytuj</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/SectorDelete/' + ${sektor.id_sektora}}">Usuń</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+</div>
+</body>
+</html>
