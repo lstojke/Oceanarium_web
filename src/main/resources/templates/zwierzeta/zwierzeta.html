@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista sektorów</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{ tables.css }" rel="stylesheet" type="text/css"/>
+</head>
+
+
+<body>
+<div id="container">
+    <h1>Zwierzeta</h1>
+    <a href="/newZwierze">Dodaj nowe zwierze</a>
+    <br><br/>
+    <table border="1" cellpadding="10" style="background-color : #006994">
+        <thead>
+        <tr>
+            <th>ID Zwierze</th>
+            <th>Imie</th>
+            <th>Data_urodzenia</th>
+            <th>ID_Akwenu</th>
+            <th>ID_Gatunku</th>
+            <th>ID_Wolontariusza</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sektor : ${zwierzeta}">
+            <td th:text="${sektor.id_zwierze}">ID</td>
+            <td th:text="${sektor.imie}">Imie</td>
+            <td th:text="${sektor.data_urodzenia}">Data_urodzenia</td>
+            <td th:text="${sektor.id_akwen}">ID_Akwenu</td>
+            <td th:text="${sektor.id_gatunku}">ID_Gatunku</td>
+            <td th:text="${sektor.id_wolontariusz}">ID_Wolontariusza</td>
+            <td>
+                <a th:href="@{'/ZwierzeEdit/' + ${zwierze.id_zwierze}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/ZwierzeDelete/' + ${zwierze.id_zwierze}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
