@@ -4,12 +4,14 @@
 <head>
     <title>Strona główna</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{tables.css}" rel="stylesheet" type="text/css"/>
 </head>
 
 
 <body>
-
-<div align="center">
+<a th:href="@{'/'}" style="font-size:56px; text-align:center; padding:10px; margin:auto;">Oceanarium</a>
+<hr>
+<div id="container">
     <h1>Pracownicy</h1>
     <a href="/new">Dodaj nowego pracownika</a>
     <br><br/>
@@ -50,6 +52,11 @@
         </tr>
         </tbody>
     </table>
+    <ul style="font-size: 36px; text-align: left;">
+        <li>
+            <a th:href="@{'/adresy/'}">Zobacz listę adresów</a>
+        </li>
+    </ul>
 </div>
 </body>
 </html>

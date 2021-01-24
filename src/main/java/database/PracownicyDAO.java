@@ -30,6 +30,7 @@ public class PracownicyDAO {
 
     //insert
     public void save(Pracownik pracownik){
+        System.out.println(pracownik.getData_urodzenia());
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("pracownicy").usingColumns("imie", "nazwisko", "data_urodzenia", "plec", "pesel", "data_zatrudnienia", "id_oceanarium", "id_adresu", "id_stanowiska");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownik);
