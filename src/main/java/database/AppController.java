@@ -19,6 +19,8 @@ public class AppController {
     private SektoryDAO sektoryDAO;
     @Autowired
     private AdresyDAO adresyDAO;
+    @Autowired
+    private ZwierzetaDAO zwierzetaDAO;
 
     @RequestMapping("/")
     public String mainPage(){
@@ -45,6 +47,13 @@ public class AppController {
         return "adresy/adresy";
     }
 
+    @RequestMapping("/zwierzeta")
+    public String zwierzeta(Model model){
+        List<Zwierze> zwierzeList = zwierzetaDAO.list();
+        model.addAttribute("zwierzeList", zwierzeList);
+        return "zwierzeta/zwierzeta";
+    }
+
     @RequestMapping("/new")
     public String showNewForm(Model model) {
         Pracownik pracownik = new Pracownik();
@@ -68,6 +77,13 @@ public class AppController {
         return "sektory/new_form";
     }
 
+    @RequestMapping("/newZwierze")
+    public String ZwierzeNewForm(Model model) {
+        Zwierze zwierze = new Zwierze();
+        model.addAttribute("zwierzeta", zwierze);
+        return "zwierzeta/new_form";
+    }
+
     @RequestMapping(value= "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("pracownicy") Pracownik pracownik) {
         pracownicyDAO.save(pracownik);
@@ -84,6 +100,12 @@ public class AppController {
     public String save(@ModelAttribute("sektory") Sektor sektor) {
         sektoryDAO.save(sektor);
         return "redirect:/sektory";
+    }
+
+    @RequestMapping(value= "/saveZwierze", method = RequestMethod.POST)
+    public String save(@ModelAttribute("zwierzeta") Zwierze zwierze) {
+        zwierzetaDAO.save(zwierze);
+        return "redirect:/zwierzeta";
     }
 
      @RequestMapping(value= "/edit/{id_pracownika}")
@@ -110,6 +132,14 @@ public class AppController {
         return mav;
     }
 
+    @RequestMapping(value= "/ZwierzeEdit/{id_zwierze}")
+    public ModelAndView zwierzeEditForm(@PathVariable(name = "id_zwierze") int id_zwierze) {
+        ModelAndView mav = new ModelAndView("zwierzeta/edit_form");
+        Zwierze zwierze = zwierzetaDAO.get(id_zwierze);
+        mav.addObject("zwierzeta", zwierze);
+        return mav;
+    }
+
     @RequestMapping(value= "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute("pracownicy") Pracownik pracownik) {
         pracownicyDAO.update(pracownik);
@@ -126,6 +156,12 @@ public class AppController {
     public String updateAdres(@ModelAttribute("adresy") Adres adres) {
         adresyDAO.update(adres);
         return "redirect:/adresy";
+    }
+
+    @RequestMapping(value= "/updateZwierze", method = RequestMethod.POST)
+    public String updateSektor(@ModelAttribute("zwierzeta") Zwierze zwierze) {
+        zwierzetaDAO.update(zwierze);
+        return "redirect:/zwierzeta";
     }
 
     @RequestMapping(value= "/delete/{id_pracownika}")
@@ -146,9 +182,16 @@ public class AppController {
         return "redirect:/adresy";
     }
 
+    @RequestMapping(value= "/ZwierzeDelete/{id_zwierze}")
+    public String deleteZwierze(@PathVariable(name = "id_zwierze") int id_zwierze) {
+        zwierzetaDAO.delete(id_zwierze);
+        return "redirect:/zwierzeta";
+    }
+
     public AppController(PracownicyDAO pracownicyDAO, SektoryDAO sektoryDAO, AdresyDAO adresyDAO) {
         this.pracownicyDAO = pracownicyDAO;
         this.sektoryDAO = sektoryDAO;
         this.adresyDAO = adresyDAO;
+        this.zwierzetaDAO = zwierzetaDAO;
     }
 }
