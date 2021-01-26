@@ -11,44 +11,43 @@
 
 <body>
 
-<div>
-    <h1>Edytor sektora</h1>
+<div align="center">
+    <h1>Edytor zwierze</h1>
     <br/>
 
-    <form action="#" th:action="@{/updateSektor}" th:object="${sektory}" method="post">
+    <form action="#" th:action="@{/updateZwierze}" th:object="${zwierzeta}" method="post">
         <table id="tt">
             <!-- first row -->
             <tr>
                 <td>ID:</td>
-                <td><input type="text" th:field="*{id_sektora}" readonly = "readonly"></td>
+                <td><input type="text" th:field="*{id_zwierze}" readonly = "readonly"></td>
             </tr>
 
             <tr>
-                <td>Nazwa:</td>
-                <td><input type="text" th:field="*{nazwa}"></td>
+                <td>Imie:</td>
+                <td><input type="text" th:field="*{imie}"></td>
 
             </tr>
 
             <tr>
-                <td>Status:</td>
-                <td><select th:field="*{status}">
-                    <option value="Otwarty">Otwarty</option>
-                    <option value="Czesciowo otwarty">Częściowo otwarty</option>
-                    <option value="W remoncie">W remoncie</option>
-                    <option value="Zamkniety">Zamknięty</option>
-                </select></td>
-
+                <td>Data urodzenia:</td>
+                <td><input type="text" th:field="*{data_urodzenia}"></td>
             </tr>
 
             <tr>
                 <td>ID_oceanarium:</td>
-                <td><input type="text" th:field="*{id_oceanarium}" readonly = "readonly"></td>
+                <td><input type="text" th:field="*{id_akwen}" ></td>
             </tr>
 
             <tr>
                 <td>ID_adresu:</td>
-                <td><input type="text" th:field="*{id_adresu}"></td>
+                <td><input type="text" th:field="*{id_gatunku}"></td>
 
+            </tr>
+
+            <tr>
+                <td>ID_wolontariusza:</td>
+                <td><input type="text" th:field="*{id_wolontariusz}"></td>
             </tr>
 
             <!--button-->
