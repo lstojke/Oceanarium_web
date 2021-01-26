@@ -29,11 +29,13 @@ public class ZwierzetaDAO {
 
     //insert
     public void save(Zwierze zwierze){
-        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("zwierzeta").usingColumns("imie", "data_urodzenia", "id_akwen", "id_gatunku", "id_wolontariusz");
+        //SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        //insertActor.withTableName("zwierzeta").usingColumns("imie", "data_urodzenia", "id_akwen", "id_gatunku", "id_wolontariusz");
+        //BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(zwierze);
+        //insertActor.execute(param);
+        String sql = "INSERT INTO Zwierzeta(imie,data_urodzenia,id_akwen,id_gatunku,id_wolontariusz) VALUES(?,TO_DATE(?, 'YYYY-MM-DD'),?,?,?)";
+        jdbcTemplate.update(sql,zwierze.getImie(),zwierze.getData_urodzenia(),zwierze.getId_akwen(),zwierze.getId_gatunku(),zwierze.getId_wolontariusz());
 
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(zwierze);
-        insertActor.execute(param);
     }
 
     //delete
