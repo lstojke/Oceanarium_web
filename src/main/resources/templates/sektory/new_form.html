@@ -15,7 +15,7 @@
     <br/>
 
     <form action="#" th:action="@{/saveSektor}" th:object="${sektory}" method="post">
-        <table border="1" cellpadding="1" style="background-color : #006994">
+        <table id="tt">
             <!-- first row -->
             <tr>
                 <td>Nazwa:</td>
@@ -35,7 +35,9 @@
             <!-- third row -->
             <tr>
                 <td>ID Oceanarium:</td>
-                <td><input type="text" th:field="*{id_oceanarium}"></td>
+                <td><select th:field="*{id_oceanarium}" >
+                    <option value="1">1</option> //posiadamy tylko jedno oceanarium
+                </select></td>
             </tr>
             <!-- fourth row -->
             <tr>

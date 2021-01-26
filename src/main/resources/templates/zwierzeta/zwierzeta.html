@@ -9,11 +9,13 @@
 
 
 <body>
+<a id="title" th:href="@{'/'}">Oceanarium</a>
+<hr>
 <div id="container">
     <h1>Zwierzeta</h1>
     <a href="/newZwierze">Dodaj nowe zwierze</a>
     <br><br/>
-    <table border="1" cellpadding="10" style="background-color : #006994">
+    <table id="tt">
         <thead>
         <tr>
             <th>ID Zwierze</th>
@@ -26,7 +28,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="sektor : ${zwierzeta}">
+        <tr th:each="sektor : ${zwierzeList}">
             <td th:text="${sektor.id_zwierze}">ID</td>
             <td th:text="${sektor.imie}">Imie</td>
             <td th:text="${sektor.data_urodzenia}">Data_urodzenia</td>

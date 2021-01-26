@@ -2,13 +2,29 @@ body
 {
   background-color: #303030;
   color: #ffffff;
-  margin:10px;
+      margin:2px;
+}
+
+#title{
+font-size:56px;
+text-align:center;
+padding:10px;
+margin:auto;
 }
 
 #container{
     width: 100%;
     text-align: -webkit-center;
     margin: 20px;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
+
+#tt{
+background-color : #006994;
 }
 
 a{
