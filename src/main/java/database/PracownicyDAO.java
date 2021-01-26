@@ -8,6 +8,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Repository
@@ -30,7 +33,11 @@ public class PracownicyDAO {
 
     //insert
     public void save(Pracownik pracownik){
-        System.out.println(pracownik.getData_urodzenia());
+        System.out.println("urodzenie " + pracownik.getData_urodzenia());
+        System.out.println("adres: " + pracownik.getId_adresu());
+        System.out.println("zatrudnienie: "+pracownik.getData_zatrudnienia());
+        System.out.println("Plec :"+pracownik.getPlec());
+        System.out.println("Oceanarium: "+pracownik.getId_oceanarium());
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("pracownicy").usingColumns("imie", "nazwisko", "data_urodzenia", "plec", "pesel", "data_zatrudnienia", "id_oceanarium", "id_adresu", "id_stanowiska");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownik);
