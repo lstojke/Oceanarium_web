@@ -7,14 +7,14 @@ public class Pracownik {
     private String imie;
     private String nazwisko;
     private Date data_urodzenia;
-    private char plec;
+    private String plec;
     private String pesel;
     private Date data_zatrudnienia;
     private int id_oceanarium;
     private int id_adresu;
     private int id_stanowiska;
 
-    public Pracownik(int id_pracownika, String imie, String nazwisko, Date data_urodzenia, char plec, String pesel, Date data_zatrudnienia, int id_oceanarium, int id_adresu, int id_stanowiska) {
+    public Pracownik(int id_pracownika, String imie, String nazwisko, Date data_urodzenia, String plec, String pesel, Date data_zatrudnienia, int id_oceanarium, int id_adresu, int id_stanowiska) {
         this.id_pracownika = id_pracownika;
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -62,11 +62,11 @@ public class Pracownik {
         this.data_urodzenia = data_urodzenia;
     }
 
-    public char getPlec() {
+    public String getPlec() {
         return plec;
     }
 
-    public void setPlec(char plec) {
+    public void setPlec(String plec) {
         this.plec = plec;
     }
 

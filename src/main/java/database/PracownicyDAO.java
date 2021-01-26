@@ -30,11 +30,13 @@ public class PracownicyDAO {
 
     //insert
     public void save(Pracownik pracownik){
-        System.out.println(pracownik.getData_urodzenia());
-        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        /*SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("pracownicy").usingColumns("imie", "nazwisko", "data_urodzenia", "plec", "pesel", "data_zatrudnienia", "id_oceanarium", "id_adresu", "id_stanowiska");
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownik);
-        insertActor.execute(param);
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownik);*/
+        String sql = "INSERT INTO Pracownicy(imie,nazwisko,data_urodzenia,PESEL,data_zatrudnienia,id_oceanarium,id_adresu,id_stanowiska,plec) VALUES(?,?," +
+                "TO_DATE(?, 'YYYY-MM-DD'),?,TO_DATE(?, 'YYYY-MM-DD'),?,?,?,?)";
+        jdbcTemplate.update(sql,pracownik.getImie(),pracownik.getNazwisko(),pracownik.getData_urodzenia(),pracownik.getPesel(),pracownik.getData_zatrudnienia(),pracownik.getId_oceanarium(),pracownik.getId_adresu(),pracownik.getId_stanowiska(),pracownik.getPlec());
+        //insertActor.execute(param);
     }
 
     //delete
@@ -53,10 +55,15 @@ public class PracownicyDAO {
 
     //update
     public void update(Pracownik pracownik){
-        String sql = "UPDATE PRACOWNICY SET imie=:imie, nazwisko=:nazwisko, data_urodzenia=:data_urodzenia, plec=:plec, pesel=:pesel, data_zatrudnienia=:data_zatrudnienia, id_oceanarium=:id_oceanarium, id_adresu=:id_adresu, id_stanowiska=:id_stanowiska WHERE id_pracownika=:id_pracownika";
+        String data_ur = "TO_DATE("+pracownik.getData_urodzenia().toString()+", 'YYYY-MM-DD')";
+        String data_zat = "TO_DATE("+pracownik.getData_zatrudnienia().toString()+", 'YYYY-MM-DD')";
+        String sql = "UPDATE PRACOWNICY SET imie=:?, nazwisko=:?, data_urodzenia=:?, plec=:?, pesel=:?, data_zatrudnienia=:?, id_oceanarium=:?, id_adresu=:?, id_stanowiska=:? WHERE id_pracownika=:?";
+
+        jdbcTemplate.update(sql, pracownik.getImie(),pracownik.getNazwisko(),pracownik.getData_urodzenia(),pracownik.getPlec(),pracownik.getPesel(),pracownik.getData_zatrudnienia(),pracownik.getId_oceanarium(),pracownik.getId_adresu(),pracownik.getId_stanowiska());
+/*
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownik);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
-        template.update(sql,param);
+        template.update(sql,param);*/
     }
 
 }
