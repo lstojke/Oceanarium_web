@@ -57,9 +57,9 @@ public class PracownicyDAO {
     public void update(Pracownik pracownik){
         String data_ur = "TO_DATE("+pracownik.getData_urodzenia().toString()+", 'YYYY-MM-DD')";
         String data_zat = "TO_DATE("+pracownik.getData_zatrudnienia().toString()+", 'YYYY-MM-DD')";
-        String sql = "UPDATE PRACOWNICY SET imie=?, nazwisko=?, data_urodzenia=TO_DATE(?, 'YYYY-MM-DD'), plec=?, pesel=?, data_zatrudnienia=TO_DATE(?, 'YYYY-MM-DD'), id_oceanarium=?, id_adresu=?, id_stanowiska=? WHERE id_pracownika=?";
+        String sql = "UPDATE PRACOWNICY SET imie=:?, nazwisko=:?, data_urodzenia=:?, plec=:?, pesel=:?, data_zatrudnienia=:?, id_oceanarium=:?, id_adresu=:?, id_stanowiska=:? WHERE id_pracownika=:?";
 
-        jdbcTemplate.update(sql, pracownik.getImie(),pracownik.getNazwisko(),pracownik.getData_urodzenia(),pracownik.getPlec(),pracownik.getPesel(),pracownik.getData_zatrudnienia(),pracownik.getId_oceanarium(),pracownik.getId_adresu(),pracownik.getId_stanowiska(),pracownik.getId_pracownika());
+        jdbcTemplate.update(sql, pracownik.getImie(),pracownik.getNazwisko(),pracownik.getData_urodzenia(),pracownik.getPlec(),pracownik.getPesel(),pracownik.getData_zatrudnienia(),pracownik.getId_oceanarium(),pracownik.getId_adresu(),pracownik.getId_stanowiska());
 /*
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownik);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
