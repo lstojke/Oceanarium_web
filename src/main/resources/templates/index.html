@@ -5,40 +5,42 @@
     <title>Strona główna</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="Oceanarium - baza dancyh"/>
-    <link th:href="@{ style.css }" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-    <a th:href="@{'/'}" style="font-size:56px; text-align:center; padding:10px; margin:auto;">Oceanarium</a>
+    <a id="title" th:href="@{'/'}">Oceanarium</a>
     <hr>
     <div id="container">
-        <a  th:href="@{'/pracownicy/'}">
+        <a  th:href="@{'/pracownicy'}">
             <div class="box">
                     <div class="linkBox">
                         Pracownicy
                     </div>
             </div>
         </a>
-        <a th:href="@{'/zwierzeta/'}">
-        <div class="box">
-            <div class="linkBox">
-                Zwierzęta
-            </div>
-        </div>
+        <a th:href="@{'/zwierzeta'}">
+                <div class="box">
+                    <div class="linkBox">
+                        Zwierzęta
+                    </div>
+                </div>
         </a>
-        <a th:href="@{'/sektory/'}">
         <div style="clear:both"></div>
+        <a th:href="@{'/sektory'}">
         <div class="box">
             <div class="linkBox">
                 Sektory
             </div>
         </div>
         </a>
-        <a th:href="@{'/adresy/'}">
-            <div style="clear:both"></div>
-            <div class="box">
-                <div class="linkBox">
+        <a th:href="@{'/adresy'}">
+                <div class="box">
+                    <div class="linkBox">
                     Adresy
-                </div>
+                    </div>
             </div>
         </a>
     </div>

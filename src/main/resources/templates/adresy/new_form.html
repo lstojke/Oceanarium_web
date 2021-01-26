@@ -4,6 +4,9 @@
 <head>
     <title>Nowy adres</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../tables.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
@@ -12,7 +15,7 @@
     <br/>
 
     <form action="#" th:action="@{/saveAdres}" th:object="${adresy}" method="post">
-        <table border="1" cellpadding="1">
+        <table border="1" cellpadding="1" style="background-color : #006994">
             <!-- first row -->
             <tr>
                 <td>Miasto:</td>

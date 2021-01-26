@@ -4,19 +4,19 @@
 <head>
     <title>Strona główna</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:href="@{tables.css}" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" href="../tables.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
 <body>
-<a th:href="@{'/'}" style="font-size:56px; text-align:center; padding:10px; margin:auto;">Oceanarium</a>
-<hr>
 <div id="container">
     <h1>Pracownicy</h1>
-    <a href="/new">Dodaj nowego pracownika</a>
+    <a href="/newPracownik">Dodaj nowego pracownika</a>
     <br><br/>
 
-    <table border="1" cellpadding="10">
+    <table border="1" cellpadding="10" style="background-color : #006994">
         <thead>
         <tr>
             <th>ID pracownika</th>
@@ -45,18 +45,13 @@
             <td th:text="${pracownik.id_adresu}">ID adresu</td>
             <td th:text="${pracownik.id_stanowiska}">ID stanowiska</td>
             <td>
-                <a th:href="@{'/edit/' + ${pracownik.id_pracownika}}">Edytuj</a>
+                <a th:href="@{'/editPracownik/' + ${pracownik.id_pracownika}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${pracownik.id_pracownika}}">Usuń</a>
+                <a th:href="@{'/deletePracownik/' + ${pracownik.id_pracownika}}">Usuń</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <ul style="font-size: 36px; text-align: left;">
-        <li>
-            <a th:href="@{'/adresy/'}">Zobacz listę adresów</a>
-        </li>
-    </ul>
 </div>
 </body>
 </html>

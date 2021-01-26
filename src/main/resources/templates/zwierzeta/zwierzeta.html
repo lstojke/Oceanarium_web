@@ -34,9 +34,9 @@
             <td th:text="${sektor.id_gatunku}">ID_Gatunku</td>
             <td th:text="${sektor.id_wolontariusz}">ID_Wolontariusza</td>
             <td>
-                <a th:href="@{'/ZwierzeEdit/' + ${zwierze.id_zwierze}}">Edytuj</a>
+                <a th:href="@{'/editZwierze/' + ${zwierze.id_zwierze}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/ZwierzeDelete/' + ${zwierze.id_zwierze}}">Usuń</a>
+                <a th:href="@{'/deleteZwierze/' + ${zwierze.id_zwierze}}">Usuń</a>
             </td>
         </tr>
         </tbody>

@@ -4,19 +4,21 @@
 <head>
     <title>Strona główna</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:href="@{tables.css}" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" th:href="@{tables.css}" type="text/css" />
+    <link rel="stylesheet" href="../tables.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 
 
 <body>
-<a th:href="@{'/'}" style="font-size:56px; text-align:center; padding:10px; margin:auto;">Oceanarium</a>
-<hr>
 <div id="container">
-    <h1>Pracownicy</h1>
-    <a href="/new">Dodaj nowy adres</a>
+    <h1>Adresy</h1>
+    <a href="/newAdres">Dodaj nowy adres</a>
     <br><br/>
 
-    <table border="1" cellpadding="10">
+    <table border="1" cellpadding="10" style="background-color : #006994">
         <thead>
         <tr>
             <th>ID adresu</th>
@@ -42,17 +44,6 @@
         </tr>
         </tbody>
     </table>
-    <ul style="font-size: 36px; text-align: left;">
-        <li>
-            <a th:href="@{'/pracownicy/'}">Przejdź do listy pracowników</a>
-        </li>
-        <li>
-            <a th:href="@{'/sektory/'}">Przejdź do listy sektorów</a>
-        </li>
-        <li>
-            <a th:href="@{'/zwierzeta/'}">Przejdź do listy zwierząt</a>
-        </li>
-    </ul>
 </div>
 </body>
 </html>

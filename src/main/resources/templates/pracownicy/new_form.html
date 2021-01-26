@@ -4,6 +4,9 @@
 <head>
     <title>Nowe oceanarium</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../tables.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
@@ -11,8 +14,8 @@
     <h1>Dodaj nowego pracownika</h1>
     <br/>
 
-    <form action="#" th:action="@{/save}" th:object="${pracownicy}" method="post">
-        <table border="1" cellpadding="1">
+    <form action="#" th:action="@{/savePracownik}" th:object="${pracownicy}" method="post">
+        <table border="1" cellpadding="1" style="background-color : #006994">
             <!-- first row -->
             <tr>
                 <td>Imię:</td>
@@ -27,7 +30,7 @@
             <!-- third row -->
             <tr>
                 <td>Data urodzenia:</td>
-                <td><input type="date" placeholder="yy-mm-dd" th:field="*{data_urodzenia}"></td>
+                <td><input type="date" placeholder="yyyy-mm-dd" th:field="*{data_urodzenia}"></td>
             </tr>
             <!-- fourth row -->
             <tr>
@@ -39,7 +42,7 @@
             </tr>
             <tr>
                 <td>Data zatrudnienia:</td>
-                <td><input type="date" placeholder="yy-mm-dd" th:field="*{data_zatrudnienia}"></td>
+                <td><input type="date" placeholder="yyyy-mm-dd" th:field="*{data_zatrudnienia}"></td>
             </tr>
             <tr>
                 <td>PESEL:</td>

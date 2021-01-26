@@ -1,10 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nowy sektor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../tables.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
+
 <body>
+<div align="center">
+    <h1>Dodaj nowy sektor</h1>
+    <br/>
+
+    <form action="#" th:action="@{/saveSektor}" th:object="${sektory}" method="post">
+        <table border="1" cellpadding="1" style="background-color : #006994">
+            <!-- first row -->
+            <tr>
+                <td>Nazwa:</td>
+                <td><input type="text" th:field="*{nazwa}"></td>
+            </tr>
+
+            <!-- second row -->
+            <tr>
+                <td>Status:</td>
+                <td><select th:field="*{status}">
+                    <option value="Otwarty">Otwarty</option>
+                    <option value="Czesciowo otwarty">Częściowo otwarty</option>
+                    <option value="W remoncie">W remoncie</option>
+                    <option value="Zamkniety">Zamknięty</option>
+                </select></td>
+            </tr>
+            <!-- third row -->
+            <tr>
+                <td>ID Oceanarium:</td>
+                <td><input type="text" th:field="*{id_oceanarium}"></td>
+            </tr>
+            <!-- fourth row -->
+            <tr>
+                <td>ID adresu:</td>
+                <td><input type="text" th:field="*{id_adresu}"></td>
+            </tr>
+
+            <!--button-->
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Dodaj</button>
+            </tr>
+
+        </table>
+
+    </form>
+
+</div>
 
 </body>
 </html>

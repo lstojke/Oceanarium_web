@@ -5,6 +5,9 @@
     <title>Lista sektorów</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{ tables.css }" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../tables.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 
 
@@ -32,9 +35,9 @@
                 <td th:text="${sektor.id_oceanarium}">ID_oceanarium</td>
                 <td th:text="${sektor.id_adresu}">ID_adresu</td>
                 <td>
-                    <a th:href="@{'/SectorEdit/' + ${sektor.id_sektora}}">Edytuj</a>
+                    <a th:href="@{'/editSektor/' + ${sektor.id_sektora}}">Edytuj</a>
                     &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/SectorDelete/' + ${sektor.id_sektora}}">Usuń</a>
+                    <a th:href="@{'/deleteSektor/' + ${sektor.id_sektora}}">Usuń</a>
                 </td>
             </tr>
             </tbody>
