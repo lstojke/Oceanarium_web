@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista sektorów</title>
+    <title>Lista zwierząt</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{ tables.css }" rel="stylesheet" type="text/css"/>
 </head>
@@ -28,13 +28,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="sektor : ${zwierzeList}">
-            <td th:text="${sektor.id_zwierze}">ID</td>
-            <td th:text="${sektor.imie}">Imie</td>
-            <td th:text="${sektor.data_urodzenia}">Data_urodzenia</td>
-            <td th:text="${sektor.id_akwen}">ID_Akwenu</td>
-            <td th:text="${sektor.id_gatunku}">ID_Gatunku</td>
-            <td th:text="${sektor.id_wolontariusz}">ID_Wolontariusza</td>
+        <tr th:each="zwierze : ${zwierzeList}">
+            <td th:text="${zwierze.id_zwierze}">ID</td>
+            <td th:text="${zwierze.imie}">Imie</td>
+            <td th:text="${zwierze.data_urodzenia}">Data_urodzenia</td>
+            <td th:text="${zwierze.id_akwen}">ID_Akwenu</td>
+            <td th:text="${zwierze.id_gatunku}">ID_Gatunku</td>
+            <td th:text="${zwierze.id_wolontariusz}">ID_Wolontariusza</td>
             <td>
                 <a th:href="@{'/editZwierze/' + ${zwierze.id_zwierze}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;
