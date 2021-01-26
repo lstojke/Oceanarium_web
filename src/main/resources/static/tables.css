@@ -1,0 +1,20 @@
+body
+{
+  background-color: #303030;
+  color: #ffffff;
+  margin:10px;
+}
+
+#container{
+    width: 100%;
+    text-align: -webkit-center;
+    margin: 20px;
+}
+
+a{
+    text-decoration:none;
+    color: #fff;
+}
+a:hover{
+    color: #ccc;
+}
