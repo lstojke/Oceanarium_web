@@ -54,10 +54,11 @@ public class ZwierzetaDAO {
 
     //update
     public void update(Zwierze zwierze){
-        String sql = "UPDATE ZWIERZETA SET imie=:imie, data_urodzenia=:data_urodzenia, id_akwen=:id_akwen, id_gatunku=:id_gatunku id_wolontariusz=:id_wolontariusz WHERE id_zwierze=:id_zwierze";
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(zwierze);
+        String sql = "UPDATE ZWIERZETA SET imie=?, data_urodzenia=TO_DATE(?, 'YYYY-MM-DD'), id_akwen=?, id_gatunku=? id_wolontariusz=? WHERE id_zwierze=?";
+        jdbcTemplate.update(sql,zwierze.getImie(),zwierze.getData_urodzenia(),zwierze.getId_akwen(),zwierze.getId_gatunku(),zwierze.getId_wolontariusz(),zwierze.getId_zwierze());
+        /*BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(zwierze);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
-        template.update(sql,param);
+        template.update(sql,param);*/
     }
     
     
